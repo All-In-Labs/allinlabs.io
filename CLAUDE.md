@@ -17,5 +17,4 @@ The All In Labs website: a single static page, `index.html`, served from the rep
 ## Assets
 
 - The favicon is pocket aces (A♥ A♦) as 16×16 pixel art: `favicon.svg` (with a dark-mode style) and `favicon.ico` (16/32). The PNGs (`favicon-96x96`, `apple-touch-icon`, `web-app-manifest-*`) are that same grid scaled by whole numbers with nearest-neighbour on white, padded so the manifest icons also work as maskable. If the icon changes, re-render them the same way.
-- `assets/logos/` holds the old chip mark and lockups; the page no longer uses them.
 - `og-image.png` (1200×630) is the pocket-aces grid scaled 22× beside "All In Labs" in Times New Roman Bold, all on white and centred as a group; re-render it the same way if the icon changes. `logo.png` is from the old brand and is unused.
