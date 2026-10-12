@@ -1,0 +1,64 @@
+/* ail.css - the All In Labs house style. Serve this file as /ail.css and link it from every page.
+   The browser's defaults are the design. This file sets the measure and type, and fixes the few
+   defaults that are wrong for apps. Every colour is the browser's own system colour except one
+   muted grey. Each value reads a token first (var(--name, fallback)), so a page can override it;
+   with no tokens defined, the fallback is used. */
+
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }   /* set data-theme on <html> to force a theme */
+:root[data-theme="dark"] { color-scheme: dark; }
+
+html { background: var(--canvas, Canvas); color: var(--ink, CanvasText); }
+body {
+  max-width: var(--measure, 44em);
+  margin: var(--page-top, 28px) var(--page-side, 32px) var(--page-bottom, 64px);
+  font: 19px/1.5 var(--font-serif, "Times New Roman", Times, serif);
+}
+body.wide { max-width: var(--measure-wide, 60em); }
+
+h1 { font-size: 32px; line-height: 1.2; margin: 0 0 14px; }
+h2 { font-size: 22px; line-height: 1.3; margin: var(--section, 32px) 0 6px; }
+h3 { font-size: 19px; line-height: 1.4; margin: var(--subsection, 24px) 0 4px; }
+
+a { color: var(--link, LinkText); }
+a:visited { color: var(--visited, VisitedText); }
+mark { background: var(--mark, Mark); color: var(--mark-text, MarkText); }
+.muted, footer, figcaption { color: var(--muted, light-dark(#555555, #aaaaaa)); }
+
+/* Courier for data, code and anything that counts. Sizes are explicit to avoid the 13px monospace quirk. */
+code, kbd, samp, .mono { font-family: var(--font-mono, "Courier New", Courier, monospace); font-size: 16px; }
+pre { margin: 0; overflow-x: auto; font: 15px/1.3 var(--font-mono, "Courier New", Courier, monospace); }
+figure { margin: var(--figure, 28px) 0 0; }
+figcaption { margin-top: 8px; font-size: 16px; }
+
+/* Form controls take the page's type instead of the browser's 13px sans, and otherwise stay native. */
+button, input, select, textarea { font: inherit; font-size: 17px; }
+button, select { min-height: 32px; }
+textarea { display: block; width: 100%; box-sizing: border-box; min-height: 12em; line-height: 1.5; }
+input:is(:not([type]), [type=text], [type=email], [type=password], [type=search], [type=url], [type=tel], [type=number]) {
+  width: 100%; max-width: var(--field-width, 22em); box-sizing: border-box;
+}
+@media (pointer: coarse) { button, select, input { min-height: 44px; } }
+
+/* A list with dates or labels in a left column: the homepage's Work list, an app's list of entries. */
+.dated { list-style: none; margin: 0; padding: 0; }
+.dated li { display: grid; grid-template-columns: var(--date-column, 4.6em) minmax(0, 1fr); padding: var(--row, 3px) 0; }
+
+table { border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: 2px 18px 2px 0; }
+
+dialog { max-width: 30em; }
+dialog > form > :first-child { margin-top: 0; }
+
+footer { margin-top: var(--footer-gap, 40px); font-size: 16px; }
+
+/* Two columns for apps that need them, like a board beside its move list. Stacks on a phone. */
+.cols { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 var(--columns-gap, 40px); align-items: start; margin-top: var(--subsection, 24px); }
+.cols > * { min-width: 0; }
+.cols > * > :first-child { margin-top: 0; }
+
+@media (max-width: 600px) {
+  body { margin: var(--page-top-phone, 20px) var(--page-side-phone, 16px) var(--page-bottom-phone, 48px); font-size: 17px; }
+  .cols { grid-template-columns: minmax(0, 1fr); }
+  .cols > * + * { margin-top: var(--section, 32px); }
+}
