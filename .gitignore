@@ -41,3 +41,5 @@ yarn.lock
 
 # Optional: Local development files
 *.local 
+# Browser-check screenshots
+.playwright-mcp/
