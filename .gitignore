@@ -43,3 +43,5 @@ yarn.lock
 *.local 
 # Browser-check screenshots
 .playwright-mcp/
+# Push/fold solver outputs (regenerate with tools/pushfold)
+tools/pushfold/*.json

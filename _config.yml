@@ -12,6 +12,7 @@ exclude:
   - README.md
   - vision.md
   - brand_assets
+  - tools
   - Gemfile
   - Gemfile.lock
   - vendor
