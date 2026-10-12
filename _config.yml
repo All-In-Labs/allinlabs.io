@@ -1,0 +1,18 @@
+# GitHub Pages builds this repo with Jekyll. Only notes.html uses it; every other page is plain
+# static HTML that Jekyll copies through untouched.
+
+collections:
+  notes:
+    output: false
+
+# Repo-only files that shouldn't be served. Setting this replaces Jekyll's default list, so the
+# Ruby files are listed again.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - vision.md
+  - brand_assets
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

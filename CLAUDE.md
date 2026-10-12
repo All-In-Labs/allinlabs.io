@@ -1,12 +1,19 @@
 # allinlabs.io
 
-The All In Labs website: a single static page, `index.html`, served from the repo root (GitHub Pages, `CNAME`). No build step, no framework, no external CSS or fonts. Keep it that way.
+The All In Labs website: a static homepage, `index.html`, plus a notes page, served from the repo root (GitHub Pages, `CNAME`). There's no local build step, framework, external CSS or fonts; keep it that way. GitHub Pages does run Jekyll on push, and only `notes.html` uses it. Everything else is copied through untouched.
 
 ## The page
 
 - The design is artboard "E · One page, minimal copy" on the canvas https://claude.ai/artifact/WQG5XtReYNjyZgxPE4AzFc, in the spirit of danluu.com: Times on white, default browser link colours, text running the full window width (no max-width, as on danluu.com), short lists. Resist adding colour, webfonts, cards or a nav; new content goes in as another line or another short section.
 - All styles are in the `<style>` block in the head. The only script animates the range figure; the page must read fine without it.
-- Preview with `python3 -m http.server` from the repo root.
+- Preview the homepage with `python3 -m http.server` from the repo root.
+
+## Notes
+
+- `notes.html` (served at `/notes/`) lists every file in `_notes/` on one page, newest first. To add a note, create `_notes/YYYY-MM-DD.md` and write Markdown. The date heading and the `#YYYY-MM-DD` anchor come from the filename. Front matter (`---` lines) is optional: notes with it are Jekyll documents, notes without it are read in with `include_relative`, and both are listed.
+- `_config.yml` declares the `notes` collection (`output: false`, so there are no per-note pages) and excludes repo-only files (`CLAUDE.md`, `README.md`, `vision.md`, `brand_assets/`) from the public site. Setting `exclude` replaces Jekyll's defaults, so keep the Ruby entries in it.
+- `notes.html` duplicates the homepage's styles in its own `<style>` block; keep the two in step.
+- `python3 -m http.server` shows `notes.html` as a raw template. To preview it, run GitHub Pages' Jekyll (the `github-pages` gem, Jekyll 3.x). Under Ruby 3.2+ its old Liquid needs a shim defining `Object#tainted?` and `#taint`, loaded with `RUBYOPT=-r<shim>`. Without that, the build fails with "undefined method 'tainted?'". Build with `--safe` to match GitHub.
 
 ## The range figure
 
