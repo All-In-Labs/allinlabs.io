@@ -72,7 +72,7 @@ T   ATo ·   ·   ·   TT  ·   ·   ·   ·   ·   ·   ·   ·
 <ul>
 <li><a href="https://kerouac.allinlabs.io" target="_blank">Kerouac</a>, a minimalist writing studio that empowers you to write consistently and build a coherent body of work.</li>
 <li><a href="https://chess.allinlabs.io" target="_blank">Boudica</a>, a classical chess engine that plays at roughly 2100 Elo. Mostly an experiment in asking coding agents to hillclimb on improving ELO.</li>
-<li><a href="https://whosucks.allinlabs.io" target="_blank">Who Sucks?</a>, a conflict journal that walks you through an interpersonal conflict in five stages, based on <a href="https://seekingtobejolly.substack.com/p/the-facts-you-suck-i-suck-everybody" target="_blank">this blog post</a>.</li>
+<li><a href="https://whosucks.allinlabs.io" target="_blank">Who Sucks?</a>, a guided journalling exercise for resolving conflict in five stages, based on <a href="https://seekingtobejolly.substack.com/p/the-facts-you-suck-i-suck-everybody" target="_blank">this blog post</a>.</li>
 <li><a href="https://aliens.allinlabs.io" target="_blank">Alien Epistemology</a>, a Fermi estimation tool for thinking about funding searches for extraterrestrial intelligence.</li>
 </ul>
 
@@ -87,9 +87,6 @@ T   ATo ·   ·   ·   TT  ·   ·   ·   ·   ·   ·   ·   ·
 </main>
 
 <script>
-// The range "resolves": every cell flickers through random hands, then settles on its real
-// value, sweeping from the top-left (AA) to the bottom-right (22) over about three seconds.
-// The finished grid is already in the HTML, so with no JS or reduced motion nothing changes.
 (function () {
   var pre = document.getElementById('range');
   if (!pre || !window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
