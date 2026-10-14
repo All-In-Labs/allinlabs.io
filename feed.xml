@@ -1,0 +1,24 @@
+---
+permalink: /feed.xml
+---
+{% comment %}
+  Atom feed of the notes. Lists them the same way notes.html does (see the comment there): each
+  _notes/YYYY-MM-DD.md, with or without front matter, newest first, dated by its filename.
+{% endcomment %}{% assign collection = site.collections | where: "label", "notes" | first %}{% assign names = "" | split: "" %}{% for doc in collection.docs %}{% assign names = names | push: doc.slug %}{% endfor %}{% for file in collection.files %}{% if file.extname == ".md" %}{% assign names = names | push: file.basename %}{% endif %}{% endfor %}{% assign names = names | sort | reverse %}<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>All In Labs: Notes</title>
+<subtitle>Weekly notes on what's happening at All In Labs.</subtitle>
+<link href="https://allinlabs.io/feed.xml" rel="self"/>
+<link href="https://allinlabs.io/notes/"/>
+<id>https://allinlabs.io/notes/</id>
+<updated>{% if names.size > 0 %}{{ names.first }}T00:00:00Z{% else %}{{ site.time | date_to_xmlschema }}{% endif %}</updated>
+<author><name>Jonny Spicer</name></author>
+<icon>https://allinlabs.io/favicon-96x96.png</icon>
+{% for day in names %}<entry>
+<title>{{ day | date: "%-d %B %Y" }}</title>
+<link href="https://allinlabs.io/notes/#{{ day }}"/>
+<id>https://allinlabs.io/notes/#{{ day }}</id>
+<updated>{{ day }}T00:00:00Z</updated>
+{% assign doc = collection.docs | where: "slug", day | first %}{% if doc %}{% assign body = doc.content %}{% else %}{% capture body %}{% include_relative _notes/{{ day }}.md %}{% endcapture %}{% endif %}<content type="html">{{ body | markdownify | xml_escape }}</content>
+</entry>
+{% endfor %}</feed>
