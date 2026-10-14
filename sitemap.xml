@@ -1,0 +1,12 @@
+---
+permalink: /sitemap.xml
+---
+{% comment %}
+  The site's two pages. The notes page is dated by its newest note, found the same way notes.html
+  and feed.xml list them. The homepage has no reliable date, so it gets no lastmod rather than a
+  wrong one.
+{% endcomment %}{% assign collection = site.collections | where: "label", "notes" | first %}{% assign names = "" | split: "" %}{% for doc in collection.docs %}{% assign names = names | push: doc.slug %}{% endfor %}{% for file in collection.files %}{% if file.extname == ".md" %}{% assign names = names | push: file.basename %}{% endif %}{% endfor %}{% assign names = names | sort | reverse %}<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://allinlabs.io/</loc></url>
+<url><loc>https://allinlabs.io/notes/</loc>{% if names.size > 0 %}<lastmod>{{ names.first }}</lastmod>{% endif %}</url>
+</urlset>

@@ -1,0 +1,6 @@
+# Every crawler is welcome, search and AI alike (Googlebot, Bingbot, GPTBot, OAI-SearchBot,
+# ChatGPT-User, PerplexityBot, ClaudeBot, Claude-SearchBot, Google-Extended, ...).
+User-agent: *
+Allow: /
+
+Sitemap: https://allinlabs.io/sitemap.xml
