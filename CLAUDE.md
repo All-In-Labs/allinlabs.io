@@ -5,6 +5,7 @@ The All In Labs website: a static homepage, `index.html`, plus a notes page, ser
 ## The page
 
 - The design is artboard "E · One page, minimal copy" on the canvas https://claude.ai/artifact/WQG5XtReYNjyZgxPE4AzFc, in the spirit of danluu.com: Times on white, default browser link colours, text running the full window width (no max-width, as on danluu.com), short lists. Resist adding colour, webfonts, cards or a nav; new content goes in as another line or another short section.
+- The head has JSON-LD describing All In Labs Ltd (Organization), Jonny (Person, its founder) and the site (WebSite). It's there so search and AI engines can tell this company apart from the many similar names. Keep its facts in step with the page, and add new profiles (for example a LinkedIn company page) to the relevant `sameAs` list.
 - All styles are in the `<style>` block in the head. The only script animates the range figure (see below); the page must read fine without it.
 - Preview the homepage with `python3 -m http.server` from the repo root.
 

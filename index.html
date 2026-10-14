@@ -21,6 +21,49 @@
 <link rel="canonical" href="https://allinlabs.io/">
 <link rel="alternate" type="application/atom+xml" title="All In Labs: Notes" href="/feed.xml">
 <link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://allinlabs.io/#organization",
+      "name": "All In Labs",
+      "legalName": "All In Labs Ltd",
+      "url": "https://allinlabs.io/",
+      "logo": "https://allinlabs.io/web-app-manifest-512x512.png",
+      "description": "An independent AI engineering and research lab in London.",
+      "email": "hello@allinlabs.io",
+      "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+      "identifier": { "@type": "PropertyValue", "propertyID": "Companies House company number", "value": "16348458" },
+      "founder": { "@id": "https://jonnyspicer.com/#person" },
+      "sameAs": [
+        "https://find-and-update.company-information.service.gov.uk/company/16348458",
+        "https://github.com/All-In-Labs"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://jonnyspicer.com/#person",
+      "name": "Jonny Spicer",
+      "url": "https://jonnyspicer.com/",
+      "worksFor": { "@id": "https://allinlabs.io/#organization" },
+      "sameAs": [
+        "https://github.com/jonnyspicer",
+        "https://www.linkedin.com/in/jonnyspicer/",
+        "https://twitter.com/jjspicer"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://allinlabs.io/#website",
+      "name": "All In Labs",
+      "url": "https://allinlabs.io/",
+      "publisher": { "@id": "https://allinlabs.io/#organization" }
+    }
+  ]
+}
+</script>
 <style>
 body { margin: 0; background: #fff; color: #000; font-family: "Times New Roman", Times, serif; font-size: 19px; line-height: 1.5; }
 main { padding: 28px 32px 64px; box-sizing: border-box; }
